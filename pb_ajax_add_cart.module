@@ -52,8 +52,8 @@ function pb_ajax_add_cart_ajax_cart_form(&$form, &$form_state) {
   if (!empty($form_errors)) {
     // Show Drupal status message without page refresh.
     // @see https://www.drupal.org/node/1271004#comment-7205478
-    $commands[] = ajax_command_remove('div.messages');
-    $commands[] = ajax_command_before('#main-content', theme('status_messages'));
+    $commands[] = ajax_command_remove('#messages > div');
+    $commands[] = ajax_command_append('#messages', theme('status_messages'));
 
     return array(
       '#type' => 'ajax',
